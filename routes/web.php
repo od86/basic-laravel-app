@@ -1,7 +1,12 @@
 <?php
 
+use App\Model\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get("/posts", [PostController::class, "index"]);
+Route::get("/posts/new", [PostController::class, "create"]);
+Route::post("/posts", [PostController::class, "store"]);
+Route::get("/posts/{id}", [PostController::class, "show"]);
+Route::get("/posts/{id}/edit", [PostController::class, "edit"]);
+Route::patch("/posts/{id}", [PostController::class, "update"]);
+Route::delete("/posts/{id}", [PostController::class, "destroy"]);
