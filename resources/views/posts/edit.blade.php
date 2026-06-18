@@ -1,8 +1,8 @@
 <x-layout>
   <h2>Edit Post</h2>
-  <form action="/posts/{{ $post->id }}" method="post">
-    @method("PATCH")
+  <form action="/posts/{{$post->id}}" method="post">
     @csrf
+    @method("PATCH")
 
     <div class="field">
       <label for="title">Post Title</label>
@@ -16,6 +16,15 @@
 
     <div class="action">
       <button type="submit">Edit post</button>
+    </div>
+  </form>
+
+  <form action="/posts/{{$post->id}}" method="post">
+    @csrf
+    @method("DELETE")
+
+    <div class="action">
+      <button type="delete">Delete post</button>
     </div>
   </form>
 </x-layout>
