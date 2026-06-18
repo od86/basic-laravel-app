@@ -12,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view("posts.index", [ "posts" => Post::all()]);
     }
 
     /**
@@ -70,6 +70,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect("posts");
     }
 }
