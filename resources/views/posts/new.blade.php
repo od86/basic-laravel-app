@@ -17,4 +17,7 @@
       <button type="submit">Create post</button>
     </div>
   </form>
+
+  <x-forms.error name="title"></x-error>
+  <x-forms.error name="body"></x-error>
 </x-layout>
