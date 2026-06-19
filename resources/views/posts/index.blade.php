@@ -9,6 +9,6 @@
       @endforeach
     </ul>
   @else
-    <div>There are no tasks</div>
+    <div>There are no posts</div>
   @endif
 </x-layout>
