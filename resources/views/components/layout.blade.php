@@ -6,6 +6,11 @@
   <title>Basic App</title>
 </head>
 <body>
+  <div class="navbar">
+    <a href="/posts">Index</a>
+    <a href="/posts/new">New</a>
+  </div>
+
   {{ $slot }}
 </body>
 </html>
