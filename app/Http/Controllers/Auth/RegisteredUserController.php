@@ -15,12 +15,10 @@ class RegisteredUserController extends Controller
     }
 
     public function store(Request $request) {
-        dd(request()->all());
-
         $request->validate([
-            "name" => ["required", "string", "max:255"],
-            "email" => ["required", "email", "string", "unique"],
-            "password" => ["required", "password", "min:5"]
+            'name' => ["required", "string", "max:255"],
+            "email" => ["required", "email", "string", "unique:users"],
+            "password" => ["required", "min:5"]
         ]);
 
         $user = User::create([
@@ -31,12 +29,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect("posts/index");
+        return redirect("posts");
     }
 }
-
-// User::create([
-//     "name" => request("name"),
-//     "email" => request("email"),
-//     "password" => request("password")
-// ]);
