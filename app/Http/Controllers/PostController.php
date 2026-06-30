@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use App\Models\User;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view("posts.index", [ "posts" => Post::query()->where(["user_id" => Auth::id()])->get()]);
+        return view("posts.index", [ "posts" => Auth::user()->posts]);
     }
 
     /**
@@ -34,10 +35,9 @@ class PostController extends Controller
             "body" => ["required", "min:20"]
         ]);
 
-        $post = Post::create([
+        $post = Auth::user()->posts()->create([
             "title" => request("title"),
             "body" => request("body"),
-            "user_id" => Auth::id(),
         ]);
 
         return redirect("posts/$post->id");
