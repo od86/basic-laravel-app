@@ -23,7 +23,7 @@ class SessionsController extends Controller
     {
         $validated = $request->validate([
             "email" => ["required", "email", "string"],
-            "password" => ["required", "min:5"]
+            "password" => ["required", "string", "min:8"]
         ]);
 
         Auth::attempt($validated);
