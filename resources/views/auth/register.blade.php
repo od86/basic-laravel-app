@@ -12,11 +12,17 @@
   </div>
     <div class="field">
       <label for="password">Password</label>
-    <input type="password" name="password" id="password" min="5" required>
+    <input type="password" name="password" id="password" required>
   </div>
 
     <div class="action">
       <button type="submit">Register</button>
     </div>
   </form>
+
+  <div class="errors">
+    <x-forms.error name="name"></x-forms>
+    <x-forms.error name="email"></x-forms>
+    <x-forms.error name="password"></x-forms>
+  </div>
 </x-layout>
