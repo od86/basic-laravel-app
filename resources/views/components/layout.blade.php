@@ -8,7 +8,7 @@
 <body>
   <div class="navbar">
     <a href="/posts">Index</a>
-    <a href="/posts/new">New</a>
+    <a href="/posts/create">New</a>
     @guest
       <a href="/register">Register</a>
       <a href="/login">Login</a>
