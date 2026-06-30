@@ -9,6 +9,18 @@
   <div class="navbar">
     <a href="/posts">Index</a>
     <a href="/posts/new">New</a>
+    @guest
+      <a href="/register">Register</a>
+      <a href="/login">Login</a>
+    @endguest
+    @auth
+      <form action="/logout" method="post">
+        @csrf
+        @method("delete")
+
+        <button type="submit">Logout</button>
+      </form>
+    @endauth
   </div>
 
   {{ $slot }}
