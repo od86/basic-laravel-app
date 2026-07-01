@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [RegisteredUserController::class, "create"]);
 
 Route::middleware("auth")->group(function() {
+    Route::get("/", [PostController::class, "index"]);
     Route::resource("posts", PostController::class);
     Route::delete("/logout", [SessionsController::class, "destroy"]);
 });
