@@ -7,13 +7,16 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="/posts">Index</a>
-    <a href="/posts/create">New</a>
     @guest
       <a href="/register">Register</a>
       <a href="/login">Login</a>
     @endguest
     @auth
+      <a href="/posts">Index</a>
+      <a href="/posts/create">New</a>
+      @can("view-admin")
+        <a href="/admin">Admin</a>
+      @endcan
       <form action="/logout" method="post">
         @csrf
         @method("delete")
