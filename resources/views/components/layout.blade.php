@@ -4,28 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Basic App</title>
+  @vite(["resources/css/app.css", "resources/js/app.js"])
 </head>
-<body>
-  <div class="navbar">
-    @guest
-      <a href="/register">Register</a>
-      <a href="/login">Login</a>
-    @endguest
-    @auth
-      <a href="/posts">Index</a>
-      <a href="/posts/create">New</a>
-      @can("view-admin")
-        <a href="/admin">Admin</a>
-      @endcan
-      <form action="/logout" method="post">
-        @csrf
-        @method("delete")
-
-        <button type="submit">Logout</button>
-      </form>
-    @endauth
+<body class="p-4">
+  <x-navbar></x-navbar>
+  <div class="main flex justify-center">
+    <div class="w-100">
+      {{ $slot }}
+    </div>
   </div>
-
-  {{ $slot }}
 </body>
 </html>

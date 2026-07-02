@@ -3,5 +3,7 @@
 ])
 
 @error($name)
-  <div class="error">{{ $message }}</div>
+  <div class="error text-red-500 flex justify-center font-semibold">
+    {{ $message }}
+  </div>
 @enderror

@@ -1,30 +1,33 @@
 <x-layout>
-  <h2>Edit Post</h2>
+  <h1 class="text-2xl font-semibold mb-3">Edit Post</h1>
   <form action="/posts/{{$post->id}}" method="post">
     @csrf
     @method("PATCH")
-
-    <div class="field">
-      <label for="title">Post Title</label>
-      <input type="text" name="title" id="title" placeholder="{{ $post->title }}">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+        Title
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="{{ $post->title }}" name="title">
     </div>
-
-    <div class="field">
-      <label for="body">Post Body</label>
-      <textarea name="body" id="body" cols="25" rows="5">{{ $post->body }}</textarea>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="body">
+        Body
+      </label>
+      <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline h-full min-h-[200px] w-full resize-none" placeholder=" " id="body" name="body">{{ $post->body }}</textarea>
     </div>
-
-    <div class="action">
-      <button type="submit">Edit post</button>
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+        Edit
+      </button>
     </div>
   </form>
-
   <form action="/posts/{{$post->id}}" method="post">
     @csrf
     @method("DELETE")
-
-    <div class="action">
-      <button type="delete">Delete post</button>
+    <div class="flex items-center justify-between py-4">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+        Delete
+      </button>
     </div>
   </form>
 </x-layout>
